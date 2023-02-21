@@ -1,3 +1,5 @@
+var counter = 0;
+
 count();
 
 setInterval(() => {
@@ -5,15 +7,15 @@ setInterval(() => {
 }, 1000);
 
 function count() {
-    var time = new Date().toLocaleString();;
-    document.title = time;
+    counter += 1;
+    document.title = counter;
     // document.querySelector('meta[property="og:title"]').setAttribute("content", time);
     document.querySelector('meta[property="og:title"]').parentElement.removeChild(document.querySelector('meta[property="og:title"]'));
     var meta = document.createElement('meta');
     meta.setAttribute('property', 'og:title');
-    meta.content = time;
+    meta.content = counter;
     document.getElementsByTagName('head')[0].appendChild(meta);
-    window.history.replaceState('', '', updateURLParameter(window.location.href, "datetime", time));
+    window.history.replaceState('', '', updateURLParameter(window.location.href, "counter", counter));
 }
 
 /**
