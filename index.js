@@ -7,13 +7,13 @@ setInterval(() => {
 function count() {
     var time = new Date().toLocaleString();;
     document.title = time;
-    // window.history.replaceState('', '', updateURLParameter(window.location.href, "datetime", time));
     // document.querySelector('meta[property="og:title"]').setAttribute("content", time);
     document.querySelector('meta[property="og:title"]').parentElement.removeChild(document.querySelector('meta[property="og:title"]'));
     var meta = document.createElement('meta');
     meta.setAttribute('property', 'og:title');
     meta.content = time;
     document.getElementsByTagName('head')[0].appendChild(meta);
+    window.history.replaceState('', '', updateURLParameter(window.location.href, "datetime", time));
 }
 
 /**
