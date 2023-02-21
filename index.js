@@ -10,7 +10,9 @@ function count() {
     counter += 1;
     document.title = counter;
     // document.querySelector('meta[property="og:title"]').setAttribute("content", time);
-    document.querySelector('meta[property="og:title"]').parentElement.removeChild(document.querySelector('meta[property="og:title"]'));
+    if (document.querySelector('meta[property="og:title"]')) {
+        document.querySelector('meta[property="og:title"]').parentElement.removeChild(document.querySelector('meta[property="og:title"]'));
+    }
     var meta = document.createElement('meta');
     meta.setAttribute('property', 'og:title');
     meta.content = counter;
