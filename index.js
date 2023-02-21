@@ -1,8 +1,7 @@
 setInterval(() => {
     var time = new Date().toLocaleString();;
     document.title = time;
-    // window.history.replaceState('', '', updateURLParameter(window.location.href, "datetime", time));
-    // document.meta
+    window.history.replaceState('', '', updateURLParameter(window.location.href, "datetime", time));
     document.querySelector('meta[property="og:title"]').setAttribute("content", time);
 }, 1000);
 
