@@ -1,9 +1,7 @@
 setInterval(() => {
-    var time = new Date();
+    var time = new Date().toLocaleString();;
     document.title = time;
-    updateURLParameter(window.location.href, 'datetime', time);
-    // newURL = updateURLParameter(newURL, 'resId', 'newResId');
-    // window.history.replaceState('', '', updateURLParameter(window.location.href, "param", "value"));
+    window.history.replaceState('', '', updateURLParameter(window.location.href, "datetime", time));
 }, 1000);
 
 
